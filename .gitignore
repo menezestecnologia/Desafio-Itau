@@ -1,0 +1,54 @@
+## Compilados
+bin/
+obj/
+out/
+
+## Visual Studio
+.vscode/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Sistema
+.DS_Store
+Thumbs.db
+
+## Teste e cobertura
+TestResults/
+*.coverage
+*.coveragexml
+*.testresults
+
+## Logs
+*.log
+
+## Dotnet
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.nupkg
+*.snupkg
+*.dbmdl
+
+## Configuração de usuário
+*.psess
+*.vsp
+*.vspscc
+*.vssscc
+*.code-workspace
+
+## ASP.NET
+appsettings.Development.json
+secrets.json
+
+## Backup e temporários
+*~
+*.tmp
+*.bak
+*.swp
+
+## IDE Rider / JetBrains
+.idea/
+*.sln.iml

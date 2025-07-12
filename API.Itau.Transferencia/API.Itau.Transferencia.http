@@ -1,0 +1,6 @@
+@API.Itau.Transferencia_HostAddress = http://localhost:5184
+
+GET {{API.Itau.Transferencia_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

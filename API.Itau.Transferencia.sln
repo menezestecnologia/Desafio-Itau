@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Itau.Transferencia", "API.Itau.Transferencia\API.Itau.Transferencia.csproj", "{F3EA9CDE-CE74-4C34-AF2D-146E324D6F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Itau.Transferencia.Domain", "API.Itau.Transferencia.Domain\API.Itau.Transferencia.Domain.csproj", "{D2342587-EC77-4DD2-B25D-D7273B915ED0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Itau.Transferencia.Application", "API.Itau.Transferencia.Application\API.Itau.Transferencia.Application.csproj", "{1913B97F-154C-4072-9FE6-048FF9FFD454}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Itau.Transferencia.Infrastructure", "API.Itau.Transferencia.Infrastructure\API.Itau.Transferencia.Infrastructure.csproj", "{07118A4A-75F7-45A7-A75D-E86507683764}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Itau.Transferencia.Tests", "API.Itau.Transferencia.Tests\API.Itau.Transferencia.Tests.csproj", "{FB916E6F-EF71-4039-B18F-5E3EA46133DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3EA9CDE-CE74-4C34-AF2D-146E324D6F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EA9CDE-CE74-4C34-AF2D-146E324D6F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EA9CDE-CE74-4C34-AF2D-146E324D6F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EA9CDE-CE74-4C34-AF2D-146E324D6F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2342587-EC77-4DD2-B25D-D7273B915ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2342587-EC77-4DD2-B25D-D7273B915ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2342587-EC77-4DD2-B25D-D7273B915ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2342587-EC77-4DD2-B25D-D7273B915ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1913B97F-154C-4072-9FE6-048FF9FFD454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1913B97F-154C-4072-9FE6-048FF9FFD454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1913B97F-154C-4072-9FE6-048FF9FFD454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1913B97F-154C-4072-9FE6-048FF9FFD454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07118A4A-75F7-45A7-A75D-E86507683764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07118A4A-75F7-45A7-A75D-E86507683764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07118A4A-75F7-45A7-A75D-E86507683764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07118A4A-75F7-45A7-A75D-E86507683764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB916E6F-EF71-4039-B18F-5E3EA46133DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB916E6F-EF71-4039-B18F-5E3EA46133DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB916E6F-EF71-4039-B18F-5E3EA46133DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB916E6F-EF71-4039-B18F-5E3EA46133DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0405DE7-09A9-467B-AFA5-2B72164B44AC}
+	EndGlobalSection
+EndGlobal
