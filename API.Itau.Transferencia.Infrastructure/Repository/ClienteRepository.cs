@@ -1,5 +1,5 @@
 ﻿using API.Itau.Transferencia.Domain.Entidades;
-using API.Itau.Transferencia.Domain.Interfaces;
+using API.Itau.Transferencia.Domain.Interfaces.Repos;
 using API.Itau.Transferencia.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 

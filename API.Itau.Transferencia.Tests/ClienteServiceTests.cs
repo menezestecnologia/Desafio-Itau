@@ -1,7 +1,7 @@
 ﻿using API.Itau.Transferencia.Application.Services;
 using API.Itau.Transferencia.Domain.DTOs;
 using API.Itau.Transferencia.Domain.Entidades;
-using API.Itau.Transferencia.Domain.Interfaces;
+using API.Itau.Transferencia.Domain.Interfaces.Repos;
 using Moq;
 
 namespace API.Itau.Transferencia.Tests

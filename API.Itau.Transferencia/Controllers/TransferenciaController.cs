@@ -1,19 +1,19 @@
-﻿using API.Itau.Transferencia.Application.Services;
-using API.Itau.Transferencia.Domain.DTOs;
+﻿using API.Itau.Transferencia.Domain.DTOs;
+using API.Itau.Transferencia.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Itau.Transferencia.Controllers;
 
 [ApiController]
 [Route("api/transferencias")]
-public class TransferenciaController(TransferenciaService service) : ControllerBase
+public class TransferenciaController(ITransferenciaService service) : ControllerBase
 {
-    private readonly TransferenciaService _service = service;
+    private readonly ITransferenciaService _service = service;
 
     [HttpPost]
-    public IActionResult Transferir([FromBody] TransferenciaDto dto)
+    public async Task<IActionResult> Transferir([FromBody] TransferenciaDto dto)
     {
-        _service.Realizar(dto);
+        await _service.RealizarAsync(dto);
         return Ok();
     }
 

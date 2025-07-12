@@ -1,14 +1,14 @@
-using API.Itau.Transferencia.Application.Services;
 using API.Itau.Transferencia.Domain.DTOs;
+using API.Itau.Transferencia.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Itau.Transferencia.Controllers;
 
 [ApiController]
 [Route("api/clientes")]
-public class ClienteController(ClienteService service) : ControllerBase
+public class ClienteController(IClienteService service) : ControllerBase
 {
-    private readonly ClienteService _service = service;
+    private readonly IClienteService _service = service;
 
     [HttpGet]
     public async Task<IActionResult> Listar() => Ok(await _service.ListarAsync());

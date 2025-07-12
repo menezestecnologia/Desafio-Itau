@@ -1,7 +1,7 @@
 using API.Itau.Transferencia.Application.Services;
 using API.Itau.Transferencia.Domain.DTOs;
 using API.Itau.Transferencia.Domain.Entidades;
-using API.Itau.Transferencia.Domain.Interfaces;
+using API.Itau.Transferencia.Domain.Interfaces.Repos;
 using API.Itau.Transferencia.Domain.Validadores;
 using Moq;
 
@@ -10,7 +10,7 @@ namespace API.Itau.Transferencia.Tests
     public class TransferenciaServiceTests
     {
         [Fact]
-        public void Deve_Falhar_Se_Conta_Nao_Existir()
+        public async Task Deve_Falhar_Se_Conta_Nao_Existir()
         {
             var clienteRepo = new Mock<IClienteRepository>();
             var transferenciaRepo = new Mock<ITransferenciaRepository>();
@@ -33,13 +33,13 @@ namespace API.Itau.Transferencia.Tests
                 Valor = 100
             };
 
-            service.Realizar(dto);
+            await service.RealizarAsync(dto);
 
             transferenciaRepo.Verify(r => r.AdicionarAsync(It.Is<Domain.Entidades.Transferencia>(t => t.Status == "Falha" && t.MotivoFalha == "Conta inexistente")), Times.Once);
         }
 
         [Fact]
-        public void Deve_Falhar_Se_Valor_Acima_Limite()
+        public async Task Deve_Falhar_Se_Valor_Acima_Limite()
         {
             var origem = new Cliente("Origem", "0001", 50000);
             var destino = new Cliente("Destino", "0002", 100);
@@ -66,13 +66,13 @@ namespace API.Itau.Transferencia.Tests
                 Valor = 20000
             };
 
-            service.Realizar(dto);
+            await service.RealizarAsync(dto);
 
             transferenciaRepo.Verify(r => r.AdicionarAsync(It.Is<Domain.Entidades.Transferencia>(t => t.Status == "Falha" && t.MotivoFalha == "Valor acima do limite")), Times.Once);
         }
 
         [Fact]
-        public void Deve_Falhar_Se_Saldo_Insuficiente()
+        public async Task Deve_Falhar_Se_Saldo_Insuficiente()
         {
             var origem = new Cliente("Origem", "0001", 50);
             var destino = new Cliente("Destino", "0002", 100);
@@ -99,13 +99,13 @@ namespace API.Itau.Transferencia.Tests
                 Valor = 200
             };
 
-            service.Realizar(dto);
+            await service.RealizarAsync(dto);
 
             transferenciaRepo.Verify(r => r.AdicionarAsync(It.Is<Domain.Entidades.Transferencia>(t => t.Status == "Falha" && t.MotivoFalha == "Saldo insuficiente")), Times.Once);
         }
 
         [Fact]
-        public void Deve_Transferir_Quando_Tudo_Valido()
+        public async Task Deve_Transferir_Quando_Tudo_Valido()
         {
             var origem = new Cliente("Origem", "0001", 1000);
             var destino = new Cliente("Destino", "0002", 500);
@@ -134,7 +134,7 @@ namespace API.Itau.Transferencia.Tests
                 Valor = 200
             };
 
-            service.Realizar(dto);
+            await service.RealizarAsync(dto);
 
             transferenciaRepo.Verify(r => r.AdicionarAsync(It.Is<Domain.Entidades.Transferencia>(t => t.Status == "Sucesso" && t.MotivoFalha == null)), Times.Once);
         }

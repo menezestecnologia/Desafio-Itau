@@ -1,6 +1,6 @@
 ﻿using API.Itau.Transferencia.Domain.Entidades;
 
-namespace API.Itau.Transferencia.Domain.Interfaces
+namespace API.Itau.Transferencia.Domain.Interfaces.Repos
 {
     public interface ITransferenciaRepository
     {

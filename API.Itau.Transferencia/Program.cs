@@ -1,5 +1,6 @@
 using API.Itau.Transferencia.Application.Services;
-using API.Itau.Transferencia.Domain.Interfaces;
+using API.Itau.Transferencia.Domain.Interfaces.Repos;
+using API.Itau.Transferencia.Domain.Interfaces.Services;
 using API.Itau.Transferencia.Domain.Validadores;
 using API.Itau.Transferencia.Infrastructure.Context;
 using API.Itau.Transferencia.Infrastructure.Repository;
@@ -22,8 +23,9 @@ public class Program
 
         builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
         builder.Services.AddScoped<ITransferenciaRepository, TransferenciaRepository>();
-        builder.Services.AddScoped<ClienteService>();
-        builder.Services.AddScoped<TransferenciaService>();
+
+        builder.Services.AddScoped<IClienteService, ClienteService>();
+        builder.Services.AddScoped<ITransferenciaService, TransferenciaService>();
 
         // Validadores
         builder.Services.AddScoped<IValidadorTransferencia, ValidadorContaExistente>();

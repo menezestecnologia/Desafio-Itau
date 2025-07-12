@@ -1,10 +1,11 @@
 ﻿using API.Itau.Transferencia.Domain.DTOs;
 using API.Itau.Transferencia.Domain.Entidades;
-using API.Itau.Transferencia.Domain.Interfaces;
+using API.Itau.Transferencia.Domain.Interfaces.Repos;
+using API.Itau.Transferencia.Domain.Interfaces.Services;
 
 namespace API.Itau.Transferencia.Application.Services;
 
-public class ClienteService(IClienteRepository clienteRepo)
+public class ClienteService(IClienteRepository clienteRepo) : IClienteService
 {
     private readonly IClienteRepository _clienteRepo = clienteRepo;
 
