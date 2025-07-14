@@ -42,8 +42,8 @@ Construído com **.NET 8**, seguindo os princípios de **Clean Architecture**, *
 
 ```bash
 # Clonar o projeto
-git clone https://github.com/seuusuario/transfer-api-itau.git
-cd transfer-api-itau
+git clone https://github.com/menezestecnologia/Desafio-Itau
+cd api.itau.transferencia
 
 # Restaurar pacotes
 dotnet restore
