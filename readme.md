@@ -43,13 +43,13 @@ Construído com **.NET 8**, seguindo os princípios de **Clean Architecture**, *
 ```bash
 # Clonar o projeto
 git clone https://github.com/menezestecnologia/Desafio-Itau
-cd api.itau.transferencia
+cd API.Itau.Transferencia
 
 # Restaurar pacotes
 dotnet restore
 
 # Executar API
-dotnet run --project src/API
+dotnet run --project API.Itau.Transferencia
 
 # Acessar Swagger
 http://localhost:5000/swagger/index.html
