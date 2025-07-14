@@ -15,10 +15,10 @@ public class ClienteRepository(InMemoryContext context) : IClienteRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<Cliente>> ListarAsync() => await _context.Clientes.ToListAsync();
+    public async Task<IEnumerable<Cliente>> ListarAsync() => await _context.Clientes.Include(t => t.Transferencias).ToListAsync();
 
     public async Task<Cliente?> ObterPorNumeroContaAsync(string numeroConta) =>
-        await _context.Clientes.FirstOrDefaultAsync(c => c.NumeroConta == numeroConta);
+        await _context.Clientes.Include(t => t.Transferencias).FirstOrDefaultAsync(c => c.NumeroConta == numeroConta);
 
     public async Task AtualizarAsync(Cliente cliente)
     {

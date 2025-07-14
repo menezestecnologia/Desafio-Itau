@@ -84,5 +84,20 @@ namespace API.Itau.Transferencia.Tests
             // Assert
             Assert.Null(resultado);
         }
+
+        [Fact]
+        public async Task Nao_Deve_Adicionar_Cliente_Se_Conta_Existir()
+        {
+            var mockRepo = new Mock<IClienteRepository>();
+            mockRepo.Setup(r => r.ObterPorNumeroContaAsync("123")).ReturnsAsync(new Cliente("João", "123", 500));
+
+            var service = new ClienteService(mockRepo.Object);
+            var dto = new ClienteDto { Nome = "Outro João", NumeroConta = "123", Saldo = 1000 };
+
+            var resultado = await service.AdicionarAsync(dto);
+
+            Assert.False(resultado);
+            mockRepo.Verify(r => r.AdicionarAsync(It.IsAny<Cliente>()), Times.Never);
+        }
     }
 }

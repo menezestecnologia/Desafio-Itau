@@ -11,11 +11,17 @@ public class ClienteService(IClienteRepository clienteRepo) : IClienteService
 
     public async Task<IEnumerable<Cliente>> ListarAsync() => await _clienteRepo.ListarAsync();
 
-    public async Task<Cliente?> ObterPorConta(string numeroConta) => await _clienteRepo.ObterPorNumeroContaAsync(numeroConta);
+    public async Task<Cliente?> ObterPorConta(string numeroConta) =>
+        await _clienteRepo.ObterPorNumeroContaAsync(numeroConta);
 
-    public async Task AdicionarAsync(ClienteDto dto)
+    public async Task<bool> AdicionarAsync(ClienteDto dto)
     {
+        var existente = await _clienteRepo.ObterPorNumeroContaAsync(dto.NumeroConta);
+        if (existente != null)
+            return false;
+
         var cliente = new Cliente(dto.Nome, dto.NumeroConta, dto.Saldo);
         await _clienteRepo.AdicionarAsync(cliente);
+        return true;
     }
 }

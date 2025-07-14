@@ -16,7 +16,10 @@ public class ClienteController(IClienteService service) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Criar([FromBody] ClienteDto dto)
     {
-        await _service.AdicionarAsync(dto);
+        var sucesso = await _service.AdicionarAsync(dto);
+        if (!sucesso)
+            return Conflict($"Conta {dto.NumeroConta} já existe.");
+
         return Created("", dto);
     }
 

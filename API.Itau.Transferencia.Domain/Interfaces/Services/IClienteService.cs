@@ -7,6 +7,6 @@ namespace API.Itau.Transferencia.Domain.Interfaces.Services
     {
         Task<IEnumerable<Cliente>> ListarAsync();
         Task<Cliente?> ObterPorConta(string numeroConta);
-        Task AdicionarAsync(ClienteDto dto);
+        Task<bool> AdicionarAsync(ClienteDto dto);
     }
 }

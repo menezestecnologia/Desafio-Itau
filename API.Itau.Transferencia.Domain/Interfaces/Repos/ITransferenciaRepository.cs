@@ -1,10 +1,8 @@
-﻿using API.Itau.Transferencia.Domain.Entidades;
-
-namespace API.Itau.Transferencia.Domain.Interfaces.Repos
+﻿namespace API.Itau.Transferencia.Domain.Interfaces.Repos
 {
     public interface ITransferenciaRepository
     {
-        Task<IEnumerable<Entidades.Transferencia>> ObterPorContaAsync(string numeroConta);
+        Task<IEnumerable<Entidades.Transferencia>> ListarPorClienteAsync(Guid clienteId);
         Task AdicionarAsync(Entidades.Transferencia transferencia);
     }
 }

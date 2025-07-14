@@ -46,8 +46,11 @@ public class TransferenciaService(
                 await _clienteRepo.AtualizarAsync(destino);
             }
 
-            var transferencia = new Domain.Entidades.Transferencia(dto.ContaOrigem, dto.ContaDestino, dto.Valor, status, motivoFalha);
-            await _transferenciaRepo.AdicionarAsync(transferencia);
+            var transferenciaOrigem = new Domain.Entidades.Transferencia(dto.ContaOrigem, dto.ContaDestino, dto.Valor, status, origem?.Id, "Envio", motivoFalha);
+            await _transferenciaRepo.AdicionarAsync(transferenciaOrigem);
+
+            var transferenciaDestino = new Domain.Entidades.Transferencia(dto.ContaOrigem, dto.ContaDestino, dto.Valor, status, destino?.Id, "Recebimento", motivoFalha);
+            await _transferenciaRepo.AdicionarAsync(transferenciaDestino);
         }
         finally
         {
@@ -56,8 +59,9 @@ public class TransferenciaService(
     }
 
 
-    public async Task<IEnumerable<Domain.Entidades.Transferencia>> ObterHistorico(string numeroConta)
+    public async Task<IEnumerable<Domain.Entidades.Transferencia>> ListarPorClienteAsync(Guid clienteId)
     {
-        return await _transferenciaRepo.ObterPorContaAsync(numeroConta);
+        var transferencias = await _transferenciaRepo.ListarPorClienteAsync(clienteId);
+        return transferencias;
     }
 }

@@ -47,28 +47,28 @@ namespace API.Itau.Transferencia.Tests
             await _client.PostAsJsonAsync("/api/clientes", new ClienteDto
             {
                 Nome = "Origem",
-                NumeroConta = "A1",
+                NumeroConta = "1234",
                 Saldo = 5000
             });
 
             await _client.PostAsJsonAsync("/api/clientes", new ClienteDto
             {
                 Nome = "Destino",
-                NumeroConta = "B2",
+                NumeroConta = "4321",
                 Saldo = 100
             });
 
             var transferencia = new TransferenciaDto
             {
-                ContaOrigem = "A1",
-                ContaDestino = "B2",
+                ContaOrigem = "1234",
+                ContaDestino = "4321",
                 Valor = 500
             };
 
             var response = await _client.PostAsJsonAsync("/api/transferencias", transferencia);
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
-            var historico = await _client.GetAsync("/api/transferencias/A1");
+            var historico = await _client.GetAsync("/api/transferencias/1234");
             Assert.Equal(HttpStatusCode.OK, historico.StatusCode);
         }
     }
